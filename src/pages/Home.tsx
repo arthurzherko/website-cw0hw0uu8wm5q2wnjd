@@ -1,14 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Activity, BarChart, Zap } from "lucide-react";
+import HeroSection from "@/components/HeroSection";
+import FeatureCard from "@/components/FeatureCard";
 
 const Home = () => {
+  const features = [
+    {
+      icon: Activity,
+      title: "Workout Tracking",
+      description: "Log your exercises, sets, reps, and weights with ease."
+    },
+    {
+      icon: BarChart,
+      title: "Progress Analytics",
+      description: "Visualize your fitness journey with detailed charts and insights."
+    },
+    {
+      icon: Zap,
+      title: "Personalized Goals",
+      description: "Set and achieve custom fitness goals tailored to your needs."
+    }
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div>
+      <HeroSection />
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-12 text-center text-3xl font-bold">Why Choose FitTrack?</h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {features.map((feature, index) => (
+              <FeatureCard key={index} {...feature} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
